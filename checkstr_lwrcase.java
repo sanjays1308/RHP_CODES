@@ -1,18 +1,19 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         String str = sc.next();
-        
+
         int flag = 0;
-        
+
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) >= '0' && str.charAt(i) <= '9') {
-                flag = flag | (1 << (str.charAt(i) - '0'));
-            }
+            flag |= (1 << (str.charAt(i) - 'a'));
         }
-        
-        System.out.println(flag == (1 << 10) - 1 ? "Yes" : "No");
+
+        System.out.println(flag == (1 << 26) - 1 ? "Yes" : "No");
+
+        sc.close();
     }
 }
